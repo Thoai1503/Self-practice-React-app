@@ -7,10 +7,12 @@ const setTodo = (name) => {
   return { id: Date.now(), name: name, complete: false };
 };
 
+
+
 const Form2 = () => {
   const [todos, dispatch] = useReducer(reducer, []);
   const [name, setName] = useState("");
-  const handleChange = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: "ADD_TODO", payload: name });
     setName("");
@@ -18,7 +20,7 @@ const Form2 = () => {
   console.log(todos);
   return (
     <>
-      <form onSubmit={handleChange}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={name}
